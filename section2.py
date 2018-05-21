@@ -13,7 +13,7 @@ class Person(object):
 
 	def __init__(self, name, sex, birthday, ident):
 		if not (isinstance(name, str) and 
-			sex in ('男', '女'):
+			sex in ('男', '女')):
 			raise PersonValueError(name, sex)
 		try:
 			birth = datetime.date(*birthday)
@@ -42,7 +42,7 @@ class Person(object):
 
 	def set_name(self, name):
 		if not isinstance(name, str):
-			raise PersonValueError("set_name": name)
+			raise PersonValueError("set_name", name)
 		self._name = name
 
 	def __lt__(self, another):
